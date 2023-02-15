@@ -25,7 +25,7 @@ void GetSensorParamsFromFile(void)
   if(fp != NULL)
   {
     char TempBuffer[20];
-    for(unsigned char Index = 0U; ((Index < BufferSizePerSession) || (!feof(fp)) ; ++Index)
+    for(unsigned char Index = 0U; ((Index < BufferSizePerSession) || (!feof(fp))) ; ++Index)
     {
       fgets(TempBuffer,20,fp);
       BattParamBuffer[Index] -> BattVoltage = (float)atof(TempBuffer);
