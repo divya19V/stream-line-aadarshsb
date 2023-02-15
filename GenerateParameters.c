@@ -8,8 +8,6 @@ const unsigned int UpperBoundaryCurrent = 100U;
 
 tyBatteryParams_t const* BattParamBuffer[BufferSizePerSession] = {0};
 
-void (*GetParameters)() = GenerateRandParams;
-
 void GenerateRandParams(void)
 {
   for(unsigned char ArrIndex = 0U; ArrIndex < BufferSizePerSession; ++ArrIndex)
