@@ -21,7 +21,7 @@ void GenerateRandParams(void)
 
 void GetSensorParamsFromFile(void)
 {
-  FILE fp = fopen("SensorDataFile.txt","r");
+  FILE* fp = fopen("SensorDataFile.txt","r");
   if(fp != NULL)
   {
     char TempBuffer[20];
