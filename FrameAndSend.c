@@ -1,10 +1,9 @@
 #include "FrameAndSend.h"
 
-extern void (*GetParameters)();
+void (*GetParameters)(void) = GenerateRandParams;
 
 void TransmitDataToConsole(void)
 {
-  (*GetParameters)() = GenerateRandParams;
   (*GetParameters)();
   tyBatteryParams_t SensorParams[] = GetSensorArrayParameters();
   for(unsigned int DataSet = 0; DataSet < 50; ++DataSet)
