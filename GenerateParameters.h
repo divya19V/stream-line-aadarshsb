@@ -1,0 +1,4 @@
+#ifndef GENERATEPARAMETERS_H
+#define GENERATEPARAMETERS_H
+
+#endif
