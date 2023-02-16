@@ -9,5 +9,5 @@ typedef struct
 
 void GenerateRandParams(void);
 void GetSensorParamsFromFile(void);
-tyBatteryParams_t* GetSensorArrayParameters(void);
+const tyBatteryParams_t* GetSensorArrayParameters(void);
 #endif
