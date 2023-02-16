@@ -7,7 +7,7 @@ const unsigned int UpperBoundaryVoltage = 43U, LowerBoundaryVoltage = 29U;
 const unsigned int UpperBoundaryCurrent = 100U;
 
 static tyBatteryParams_t BattParamBuffer[BufferSizePerSession] = {0};
-tyBatteryParams_t const * BattParamPointer = BattParamBuffer;
+tyBatteryParams_t* const BattParamPointer = BattParamBuffer;
 
 void GenerateRandParams(void)
 {
