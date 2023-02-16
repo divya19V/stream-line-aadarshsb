@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 const unsigned int BufferSizePerSession = 50U;
-const unsigned int UpperBoundaryVoltage = 43U, LowerBoundaryVoltage = 29U;
-const unsigned int UpperBoundaryCurrent = 100U, LowerBoundaryCurrent = 10U;
+const float UpperBoundaryVoltage = 4.3f, LowerBoundaryVoltage = 2.9f;
+const float UpperBoundaryCurrent = 1.0f, LowerBoundaryCurrent = 10.0f;
 
 static tyBatteryParams_t BattParamBuffer[BufferSizePerSession];
 tyBatteryParams_t* const BattParamPointer = BattParamBuffer;
@@ -15,11 +15,9 @@ void GenerateRandParams(void)
 {
   for(unsigned char ArrIndex = 0U; ArrIndex < BufferSizePerSession; ++ArrIndex)
   {
-    BattParamPointer[ArrIndex].BattVoltage = \
-      (float)( (rand() % (UpperBoundaryVoltage - LowerBoundaryVoltage + 1)) + LowerBoundaryVoltage)/(10.0f);
+    BattParamPointer[ArrIndex].BattVoltage =(rand() % (UpperBoundaryVoltage - LowerBoundaryVoltage + 1)) + LowerBoundaryVoltage;
     
-    BattParamPointer[ArrIndex].BattVoltage = \
-      (float)( (rand() % (UpperBoundaryCurrent - LowerBoundaryCurrent + 1)) + LowerBoundaryCurrent)/(10.0f);
+    BattParamPointer[ArrIndex].BattVoltage =(rand() % (UpperBoundaryCurrent - LowerBoundaryCurrent + 1)) + LowerBoundaryCurrent;
   }
 }
 
