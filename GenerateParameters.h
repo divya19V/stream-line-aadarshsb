@@ -3,8 +3,8 @@
 
 typedef struct
 {
-  float BattVoltage;
-  float BattCurrent;
+  double BattVoltage;
+  double BattCurrent;
 }tyBatteryParams_t;
 
 void GenerateRandParams(void);
