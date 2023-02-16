@@ -5,7 +5,7 @@ void (*GetParameters)(void) = GenerateRandParams;
 void TransmitDataToConsole(void)
 {
   (*GetParameters)();
-  tyBatteryParams_t* SensorParams = GetSensorArrayParameters();
+  const tyBatteryParams_t* SensorParams = GetSensorArrayParameters();
   for(unsigned int DataSet = 0; DataSet < 50; ++DataSet)
   {
     /*The data will be output in console as following example
