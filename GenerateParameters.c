@@ -13,10 +13,10 @@ void GenerateRandParams(void)
 {
   for(unsigned char ArrIndex = 0U; ArrIndex < BufferSizePerSession; ++ArrIndex)
   {
-    BattParamPointer[ArrIndex] -> BattVoltage = \
+    BattParamPointer[ArrIndex].BattVoltage = \
       (float)((rand() % (UpperBoundaryVoltage - LowerBoundaryVoltage + 1)) + LowerBoundaryVoltage)/10.0f;
     
-    BattParamPointer[ArrIndex] -> BattVoltage = (float)(rand() % UpperBoundaryVoltage)/10.0f;
+    BattParamPointer[ArrIndex].BattVoltage = (float)(rand() % UpperBoundaryVoltage)/10.0f;
   }
 }
 
@@ -29,9 +29,9 @@ void GetSensorParamsFromFile(void)
     for(unsigned char Index = 0U; ((Index < BufferSizePerSession) || (!feof(fp))) ; ++Index)
     {
       fgets(TempBuffer,20,fp);
-      BattParamPointer[Index] -> BattVoltage = (float)atof(TempBuffer);
+      BattParamPointer[Index].BattVoltage = (float)atof(TempBuffer);
       fgets(TempBuffer,20,fp);
-      BattParamPointer[Index] -> BattCurrent = (float)atof(TempBuffer);
+      BattParamPointer[Index].BattCurrent = (float)atof(TempBuffer);
       fgets(TempBuffer,20,fp);
     }
   }
@@ -41,7 +41,7 @@ void GetSensorParamsFromFile(void)
   }
 }
 
-tyBatteryParams_t* GetSensorArrayParameters(void)
+const tyBatteryParams_t* GetSensorArrayParameters(void)
 {
   return BattParamPointer;
 }
