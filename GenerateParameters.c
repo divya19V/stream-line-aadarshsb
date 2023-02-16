@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 const unsigned int BufferSizePerSession = 50U;
-const float UpperBoundaryVoltage = 4.3f, LowerBoundaryVoltage = 2.9f;
-const float UpperBoundaryCurrent = 1.0f, LowerBoundaryCurrent = 10.0f;
+const unsigned int UpperBoundaryVoltage = 5, LowerBoundaryVoltage = 3;
+const unsigned int UpperBoundaryCurrent = 1, LowerBoundaryCurrent = 10;
 
 static tyBatteryParams_t BattParamBuffer[BufferSizePerSession];
 tyBatteryParams_t* const BattParamPointer = BattParamBuffer;
