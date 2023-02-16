@@ -18,7 +18,7 @@ void GenerateRandParams(void)
     BattParamPointer[ArrIndex].BattVoltage = \
       ((rand() % (UpperBoundaryVoltage - LowerBoundaryVoltage + 1))+LowerBoundaryVoltage)/10.0f);
     
-    BattParamPointer[ArrIndex].BattVoltage = \
+    BattParamPointer[ArrIndex].BattCurrent = \
       ((rand() % (UpperBoundaryCurrent - LowerBoundaryCurrent + 1))+LowerBoundaryCurrent)/10.0f);
   }
 }
