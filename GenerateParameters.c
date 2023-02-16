@@ -6,8 +6,10 @@ const unsigned int BufferSizePerSession = 50U;
 const unsigned int UpperBoundaryVoltage = 43U, LowerBoundaryVoltage = 29U;
 const unsigned int UpperBoundaryCurrent = 100U;
 
-static tyBatteryParams_t BattParamBuffer[BufferSizePerSession] = {0};
+static tyBatteryParams_t BattParamBuffer[BufferSizePerSession];
 tyBatteryParams_t* const BattParamPointer = BattParamBuffer;
+
+static void CopyFromFileToBuffer(FILE* fp);
 
 void GenerateRandParams(void)
 {
@@ -25,15 +27,7 @@ void GetSensorParamsFromFile(void)
   FILE* fp = fopen("SensorDataFile.txt","r");
   if(fp != NULL)
   {
-    char TempBuffer[20];
-    for(unsigned char Index = 0U; ((Index < BufferSizePerSession) || (!feof(fp))) ; ++Index)
-    {
-      fgets(TempBuffer,20,fp);
-      BattParamPointer[Index].BattVoltage = (float)atof(TempBuffer);
-      fgets(TempBuffer,20,fp);
-      BattParamPointer[Index].BattCurrent = (float)atof(TempBuffer);
-      fgets(TempBuffer,20,fp);
-    }
+    void CopyFromFileToBuffer(fp);
   }
   else
   {
@@ -44,4 +38,17 @@ void GetSensorParamsFromFile(void)
 const tyBatteryParams_t* GetSensorArrayParameters(void)
 {
   return BattParamPointer;
+}
+
+static void CopyFromFileToBuffer(FILE* fp)
+{
+  char TempBuffer[20];
+  for(unsigned char Index = 0U; ((Index < BufferSizePerSession) || (!feof(fp))) ; ++Index)
+  {
+    fgets(TempBuffer,20,fp);
+    BattParamPointer[Index].BattVoltage = (float)atof(TempBuffer);
+    fgets(TempBuffer,20,fp);
+    BattParamPointer[Index].BattCurrent = (float)atof(TempBuffer);
+    fgets(TempBuffer,20,fp);
+   }
 }
