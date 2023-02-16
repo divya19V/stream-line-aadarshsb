@@ -1,6 +1,6 @@
 #include "FrameAndSend.h"
 
-void (*GetParameters)(void) = GenerateRandParams;
+void (*GetParameters)(void) = GetSensorParamsFromFile;
 
 void TransmitDataToConsole(void)
 {
