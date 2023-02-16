@@ -16,10 +16,10 @@ void GenerateRandParams(void)
   for(unsigned char ArrIndex = 0U; ArrIndex < BufferSizePerSession; ++ArrIndex)
   {
     BattParamPointer[ArrIndex].BattVoltage = \
-      (float)((rand() % (UpperBoundaryVoltage - LowerBoundaryVoltage + 1)) + LowerBoundaryVoltage)/10.0f;
+      (float)( (rand() % (UpperBoundaryVoltage - LowerBoundaryVoltage + 1)) + LowerBoundaryVoltage)/(10.0f);
     
     BattParamPointer[ArrIndex].BattVoltage = \
-      (float)((rand() % (UpperBoundaryCurrent - LowerBoundaryCurrent + 1)) + LowerBoundaryCurrent)/10.0f;
+      (float)( (rand() % (UpperBoundaryCurrent - LowerBoundaryCurrent + 1)) + LowerBoundaryCurrent)/(10.0f);
   }
 }
 
