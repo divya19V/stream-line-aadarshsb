@@ -27,7 +27,7 @@ void GetSensorParamsFromFile(void)
   FILE* fp = fopen("SensorDataFile.txt","r");
   if(fp != NULL)
   {
-    void CopyFromFileToBuffer(fp);
+    CopyFromFileToBuffer(fp);
   }
   else
   {
