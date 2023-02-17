@@ -26,7 +26,7 @@ TEST_CASE("Test case to verify current value reflects from file to the console p
 TEST_CASE("Just print the value in the console \n")
 {
   TransmitDataToConsole();
-  if(GetCurrentOfElement(0) == 18.7999)
+  if(GetCurrentOfElement(0) == 0.0f)
   {
     printf("kjhrslnslfne\n");
   }
