@@ -1,7 +1,8 @@
 #define CATCH_CONFIG_MAIN
 #include "test/catch.hpp"
 
-#include "Battery_Charging_Parameter.hpp"
+#include "GenerateParameters.h"
+#include "FrameAndSend.h"
 
 // include hpp file of battery charging parameter
 
