@@ -5,7 +5,7 @@ void (*GetParameters)(void) = GetSensorParamsFromFile;
 
 void ChangeTheGetParamType(void (*GetTypeFunction)())
 {
-  (*GetParameters)() = GetTypeFunction;
+  GetParameters = GetTypeFunction;
 }
 void TransmitDataToConsole(void)
 {
