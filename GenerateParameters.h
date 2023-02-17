@@ -12,7 +12,7 @@ void GetSensorParamsFromFile(void);
 const tyBatteryParams_t* GetSensorArrayParameters(void);
 
 void ChangeTheGetParamType(void (*GetTypeFunction)());
-void float GetVoltageOfElement(unsigned int ArrayElement);
-void float GetCurrentOfElement(unsigned int ArrayElement);
+float GetVoltageOfElement(const unsigned int ArrayElement);
+float GetCurrentOfElement(const unsigned int ArrayElement);
 
 #endif
