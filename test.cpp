@@ -32,6 +32,6 @@ TEST_CASE("Just print the value in the console \n")
   }
   else
   {
-    printf(" :( \n");
+    printf("%f \n"GetCurrentOfElement(0));
   }
 }
