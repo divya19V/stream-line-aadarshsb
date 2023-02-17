@@ -2,6 +2,11 @@
 
 void (*GetParameters)(void) = GetSensorParamsFromFile;
 
+
+void ChangeTheGetParamType(void (*GetTypeFunction)())
+{
+  (*GetParameters)(void) = GetTypeFunction;
+}
 void TransmitDataToConsole(void)
 {
   (*GetParameters)();
@@ -23,5 +28,33 @@ void TransmitDataToConsole(void)
       and next line carriage for the next dataset
     */
     printf("%f\n%f\n\n",SensorParams[DataSet].BattVoltage,SensorParams[DataSet].BattCurrent); 
+  }
+}
+
+void float GetVoltageOfElement(unsigned int ArrayElement)
+{
+  (*GetParameters)();
+  const tyBatteryParams_t* SensorParamsForVoltage = GetSensorArrayParameters();
+  if(ArrayElement >= 50)
+  {
+    return 0.0f;
+  }
+  else 
+  {
+    return SensorParamsForVoltage[ArrayElement].BattVoltage;
+  }
+}
+
+void float GetCurrentOfElement(unsigned int ArrayElement)
+{
+  (*GetParameters)();
+  const tyBatteryParams_t* SensorParamsForCurrent = GetSensorArrayParameters();
+  if(ArrayElement >= 50)
+  {
+    return 0.0f;
+  }
+  else
+  {
+    return SensorParamsForVoltage[ArrayElement].BattCurrent;
   }
 }
