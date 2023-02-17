@@ -5,7 +5,7 @@ void (*GetParameters)(void) = GetSensorParamsFromFile;
 
 void ChangeTheGetParamType(void (*GetTypeFunction)())
 {
-  (*GetParameters)(void) = GetTypeFunction;
+  GetParameters() = GetTypeFunction;
 }
 void TransmitDataToConsole(void)
 {
@@ -55,6 +55,6 @@ float GetCurrentOfElement(unsigned int ArrayElement)
   }
   else
   {
-    return SensorParamsForVoltage[ArrayElement].BattCurrent;
+    return SensorParamsForCurrent[ArrayElement].BattCurrent;
   }
 }
