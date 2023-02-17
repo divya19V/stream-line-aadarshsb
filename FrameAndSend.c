@@ -31,7 +31,7 @@ void TransmitDataToConsole(void)
   }
 }
 
-void float GetVoltageOfElement(unsigned int ArrayElement)
+float GetVoltageOfElement(unsigned int ArrayElement)
 {
   (*GetParameters)();
   const tyBatteryParams_t* SensorParamsForVoltage = GetSensorArrayParameters();
@@ -45,7 +45,7 @@ void float GetVoltageOfElement(unsigned int ArrayElement)
   }
 }
 
-void float GetCurrentOfElement(unsigned int ArrayElement)
+float GetCurrentOfElement(unsigned int ArrayElement)
 {
   (*GetParameters)();
   const tyBatteryParams_t* SensorParamsForCurrent = GetSensorArrayParameters();
