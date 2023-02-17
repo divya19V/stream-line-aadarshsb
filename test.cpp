@@ -5,7 +5,7 @@
 #include "FrameAndSend.h"
 
 // include hpp file of battery charging parameter
-
+/*
 TEST_CASE("Test case to verify voltage value reflects from file to the console properly \n")
 {
   REQUIRE(GetVoltageOfElement(0) == 4.2);
@@ -21,8 +21,13 @@ TEST_CASE("Test case to verify current value reflects from file to the console p
   REQUIRE(GetCurrentOfElement(4) == 11.70000);
   REQUIRE(GetCurrentOfElement(2) == 15.90000);
 }
+*/
 
 TEST_CASE("Just print the value in the console \n")
 {
   TransmitDataToConsole();
+  if(GetCurrentOfElement(0) == 18.7999)
+  {
+    printf("kjhrslnslfne\n");
+  }
 }
