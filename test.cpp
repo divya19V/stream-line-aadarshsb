@@ -30,4 +30,8 @@ TEST_CASE("Just print the value in the console \n")
   {
     printf("kjhrslnslfne\n");
   }
+  else
+  {
+    printf(" :( \n");
+  }
 }
