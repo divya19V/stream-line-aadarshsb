@@ -1,7 +1,18 @@
 #include "FrameAndSend.h"
 
-void (*GetParameters)(void) = GetSensorParamsFromFile;
+/*static fn prototypes*/
+static float GetVoltageParam(unsigned int ArrayElement);
+static float GetCurrentParam(unsigned int ArrayElement);
+/*scope limited global variable (static var)*/
+static void (*GetParameters)(void) = GetSensorParamsFromFile;
 
+/*consts*/
+static const unsigned int TOTAL_REQ_TYPES = 2U;
+static float (*ParamToFnMap[TOTAL_REQ_TYPES])(unsigned int ArrayElement) =
+{
+  GetVoltageParam,
+  GetCurrentParam
+};
 
 void ChangeTheGetParamType(void (*GetTypeFunction)())
 {
@@ -31,30 +42,26 @@ void TransmitDataToConsole(void)
   }
 }
 
-float GetVoltageOfElement(unsigned int ArrayElement)
+float GetVoltageOfElement(unsigned int ArrayElement,enumRequestParam Parameter)
 {
   (*GetParameters)();
-  const tyBatteryParams_t* SensorParamsForVoltage = GetSensorArrayParameters();
+  const tyBatteryParams_t* SensorParams = GetSensorArrayParameters();
   if(ArrayElement >= 50)
   {
-    return 0.0f;
+    return NaN;
   }
   else 
   {
-    return SensorParamsForVoltage[ArrayElement].BattVoltage;
+    return (*ParamToFnMap[Parameter])(ArrayElement);
   }
 }
 
-float GetCurrentOfElement(unsigned int ArrayElement)
+static float GetVoltageParam(unsigned int ArrayElement)
 {
-  (*GetParameters)();
-  const tyBatteryParams_t* SensorParamsForCurrent = GetSensorArrayParameters();
-  if(ArrayElement >= 50)
-  {
-    return 0.0f;
-  }
-  else
-  {
-    return SensorParamsForCurrent[ArrayElement].BattCurrent;
-  }
+  return SensorParamsForVoltage[ArrayElement].BattVoltage;
+}
+
+static float GetCurrentParam(unsigned int ArrayElement)
+{
+  return SensorParamsForVoltage[ArrayElement].BattCurrent;
 }
