@@ -27,7 +27,7 @@ TEST_CASE("Switch the fn to Generate random number and check if voltage datasets
   ChangeTheGetParamType(GenerateRandParams);
   for(unsigned char Index = 0; Index < 50 ; ++Index)
   {
-    REQUIRE(GetElement(Index,PARAM_VOLTAGE) >= 2.9f && GetElement(Index,PARAM_VOLTAGE) <= 4.3f);
+    REQUIRE((GetElement(Index,PARAM_VOLTAGE) >= 2.9f && GetElement(Index,PARAM_VOLTAGE) <= 4.3f) == 0x01);
   }
 }
 TEST_CASE("Switch the fn to Generate random number and check if voltage datasets lie in the range \n")
@@ -36,7 +36,7 @@ TEST_CASE("Switch the fn to Generate random number and check if voltage datasets
   ChangeTheGetParamType(GenerateRandParams);
   for(unsigned char Index = 0; Index < 50 ; ++Index)
   {
-    REQUIRE(GetElement(Index,PARAM_CURRENT) >= 0.1f && GetElement(Index,PARAM_VOLTAGE) <= 10.0f);
+    REQUIRE((GetElement(Index,PARAM_CURRENT) >= 0.1f && GetElement(Index,PARAM_VOLTAGE) <= 10.0f) == 0x01);
   }
 }
 
