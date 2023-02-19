@@ -30,7 +30,7 @@ TEST_CASE("Switch the fn to Generate random number and check if voltage datasets
     REQUIRE((GetElement(Index,PARAM_VOLTAGE) >= 2.9f && GetElement(Index,PARAM_VOLTAGE) <= 4.3f) == 0x01);
   }
 }
-TEST_CASE("Switch the fn to Generate random number and check if voltage datasets lie in the range \n")
+TEST_CASE("check if current datasets lie in the range \n")
 {
   //The set limit for current is between 1/10,0f = 0,1f A and max of 100/10,0f = 10,0f A
   ChangeTheGetParamType(GenerateRandParams);
