@@ -42,7 +42,7 @@ void TransmitDataToConsole(void)
   }
 }
 
-float GetVoltageOfElement(unsigned int ArrayElement,enumRequestParam Parameter)
+float GetElement(unsigned int ArrayElement,enumRequestParam Parameter)
 {
   (*GetParameters)();
   const tyBatteryParams_t* SensorParams = GetSensorArrayParameters();
