@@ -4,10 +4,15 @@
 #include "GenerateParameters.h"
 #include <stdio.h>
 
+enum enumRequestParam
+{
+  PARAM_VOLTAGE,
+  PARAM_CURRENT,
+};
+
 void TransmitDataToConsole(void);
 
 void ChangeTheGetParamType(void (*GetTypeFunction)());
-float GetVoltageOfElement(const unsigned int ArrayElement);
-float GetCurrentOfElement(const unsigned int ArrayElement);
+float GetElement(const unsigned int ArrayElement,enumRequestParam Parameter);
 
 #endif
